@@ -12,4 +12,4 @@
 
 # 其他事项
 题解本人常用C++与JAVA，偶尔使用Python
-`我的CSDN里面会有一些讲解：![CSDN链接](https://blog.csdn.net/2302_79366101?type=blog)
+`我的CSDN里面会有一些讲解：[CSDN链接](https://blog.csdn.net/2302_79366101?spm=1000.2115.3001.5343)
