@@ -1,0 +1,62 @@
+#include <iostream>
+#include <iomanip>
+#include <valarray>
+#include <vector>
+
+using namespace std;
+
+int ROWS;
+int COLS;
+
+
+void init(vector<int> & s){
+    int val = 1;
+
+    for(int i = 0; i < ROWS; ++i){
+        for(int j = 0; j < COLS; ++j) {
+            s[val-1] = val;
+            val++;
+        }
+    }
+}
+
+void print_e(vector<bool> &st,vector<int> &s){
+
+    cout << setw(4) << setfill(' ');
+    int cnt=0;
+    for(int i = 0; i < ROWS; ++i){
+        for(int j = 0; j < COLS; ++j){
+            if(st[cnt]) cout << " ×";
+            else cout << setw(4) << s[cnt] << " ";
+            cnt++;
+        }
+        cout << endl;
+    }
+}
+void get_primes_e(vector<bool> &st,vector<int> &s)
+{
+    for (int i = 2; i <=sqrt(ROWS*COLS); i++)
+    {
+        if (st[i-1]) continue;
+        for (int j = i + i; j <= ROWS*COLS; j += i)
+        {
+            st[j-1] = 1;
+        }
+    }
+
+}
+
+
+int main()
+{
+    cout<<"请输入展示的行数和列数，行数*列数就是数字大小："<<endl;
+    cin>>ROWS>>COLS;
+    vector<int> s(ROWS*COLS,0);
+    vector<bool> st(ROWS*COLS,0);
+    init(s);
+    get_primes_e(st,s);
+
+    print_e(st,s);
+
+    return 0;
+}
